@@ -8,19 +8,18 @@ Resource          testdata.robot
 
 *** Variables ***
 
-${BROWSER}        Chrome
+${BROWSER}        phantomjs
 ${DELAY}          1   # it's slow connection from China
 
 
 *** Keywords ***
 Testsuite Setup
-    Create WebDriver Firefox
     Create Test Data
     Open Browser to Home Page
 
 
 Open Browser to Home Page
-    Open Browser              &{TEST_DATA}[url]  #${BROWSER}
+    Open Browser              &{TEST_DATA}[url]  ${BROWSER}
     Maximize Browser Window
     Set Selenium Speed        ${DELAY}
 
