@@ -33,6 +33,11 @@ ${filter_count}         listingscnt
 
 
 *** Keywords ***
+Create WebDriver Firefox
+     ${options} =  Evaluate  sys.modules['selenium.webdriver.firefox.options'].Options()  sys
+     Call Method  ${options}  set_headless
+     Create Webdriver  Firefox  firefox_options=${options}
+
 Create Test Data
      &{TEST_DATA}      Create Dictionary  url=http://${eshop_url}   title=${expected_title}
      Set Global Variable   &{TEST_DATA}
