@@ -7,7 +7,7 @@ Library           String
 Resource          testdata.robot
 
 *** Variables ***
-${BROWSER}        Firefox
+${BROWSER}        Chrome 
 ${DELAY}          1   # it's slow connection from China
 
 
