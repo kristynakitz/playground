@@ -1,0 +1,6 @@
+I have installed jenkins on my macOS locally and configured free style project to run tests in robot framework. All tests are stored in git repository. For demonstration purposes, I have chosen the phantomjs webdriver as it can be easily run in headless mode on macOS.
+
+There is a shell build script configured as well and it does the following:
+    - creates the report directory on shared system (apache server is configured to be able see this directory, so test results can be easily accessible via web browser)
+    - tests in robot framework are executed
+    - link to latest test results is updated, so we can keep one permanent link to always latest results 
