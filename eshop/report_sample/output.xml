@@ -1,0 +1,1266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180320 18:29:29.156" generator="Robot 3.0.2 (Python 2.7.14 on darwin)">
+<suite source="/Users/Shared/Jenkins/Home/workspace/robot-tests-sample/eshop/testsuite" id="s1" name="Testsuite">
+<suite source="/Users/Shared/Jenkins/Home/workspace/robot-tests-sample/eshop/testsuite/cell_phones_category.robot" id="s1-s1" name="Cell Phones Category">
+<kw type="setup" name="Testsuite Setup" library="resource">
+<kw name="Create Test Data" library="testdata">
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>url=http://${eshop_url}</arg>
+<arg>title=${expected_title}</arg>
+</arguments>
+<assign>
+<var>&amp;{TEST_DATA}</var>
+</assign>
+<msg timestamp="20180320 18:29:29.426" level="INFO">&amp;{TEST_DATA} = { url=http://ebay.com | title=eBay }</msg>
+<status status="PASS" endtime="20180320 18:29:29.426" starttime="20180320 18:29:29.425"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>&amp;{TEST_DATA}</arg>
+</arguments>
+<msg timestamp="20180320 18:29:29.427" level="INFO">&amp;{TEST_DATA} = { url=http://ebay.com | title=eBay }</msg>
+<status status="PASS" endtime="20180320 18:29:29.427" starttime="20180320 18:29:29.426"></status>
+</kw>
+<status status="PASS" endtime="20180320 18:29:29.427" starttime="20180320 18:29:29.425"></status>
+</kw>
+<kw name="Open Browser to Home Page" library="resource">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>&amp;{TEST_DATA}[url]</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20180320 18:29:29.428" level="INFO">Opening browser 'phantomjs' to base url 'http://ebay.com'.</msg>
+<msg timestamp="20180320 18:29:38.732" level="INFO">/usr/local/Cellar/python/2.7.14/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/selenium/webdriver/phantomjs/webdriver.py:49: UserWarning: Selenium support for PhantomJS has been deprecated, please use headless versions of Chrome or Firefox instead
+  warnings.warn('Selenium support for PhantomJS has been deprecated, please use headless '</msg>
+<status status="PASS" endtime="20180320 18:29:38.733" starttime="20180320 18:29:29.427"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20180320 18:29:38.785" starttime="20180320 18:29:38.734"></status>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<arguments>
+<arg>${DELAY}</arg>
+</arguments>
+<status status="PASS" endtime="20180320 18:29:38.788" starttime="20180320 18:29:38.785"></status>
+</kw>
+<status status="PASS" endtime="20180320 18:29:38.788" starttime="20180320 18:29:29.427"></status>
+</kw>
+<status status="PASS" endtime="20180320 18:29:38.788" starttime="20180320 18:29:29.424"></status>
+</kw>
+<test id="s1-s1-t1" name="Open Website And Check Title">
+<kw name="Title Should Start With" library="resource">
+<arguments>
+<arg>&amp;{TEST_DATA}[title]</arg>
+</arguments>
+<kw name="Get Title" library="SeleniumLibrary">
+<doc>Returns the title of current page.</doc>
+<assign>
+<var>${title}</var>
+</assign>
+<msg timestamp="20180320 18:29:39.852" level="INFO">${title} = Electronics, Cars, Fashion, Collectibles, Coupons and More | eBay</msg>
+<status status="PASS" endtime="20180320 18:29:39.852" starttime="20180320 18:29:38.791"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${title}</arg>
+<arg>${expected}</arg>
+<arg>case_sensitive=False</arg>
+</arguments>
+<status status="PASS" endtime="20180320 18:29:39.853" starttime="20180320 18:29:39.852"></status>
+</kw>
+<status status="PASS" endtime="20180320 18:29:39.854" starttime="20180320 18:29:38.790"></status>
+</kw>
+<doc>Opens the web browser and checks if proper website has been opened</doc>
+<status status="PASS" endtime="20180320 18:29:39.854" critical="yes" starttime="20180320 18:29:38.788"></status>
+</test>
+<test id="s1-s1-t2" name="Search Box Is Present">
+<kw name="Search Box Exists" library="resource">
+<arguments>
+<arg>${search_id}</arg>
+</arguments>
+<kw name="Is Element Exists" library="resource">
+<arguments>
+<arg>id:${search_box_id}</arg>
+</arguments>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<doc>Returns number of elements matching ``locator``.</doc>
+<arguments>
+<arg>${element}</arg>
+</arguments>
+<assign>
+<var>${count}</var>
+</assign>
+<msg timestamp="20180320 18:29:40.958" level="INFO">${count} = 1</msg>
+<status status="PASS" endtime="20180320 18:29:40.958" starttime="20180320 18:29:39.859"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>${count} &gt; 0</arg>
+</arguments>
+<status status="PASS" endtime="20180320 18:29:40.958" starttime="20180320 18:29:40.958"></status>
+</kw>
+<status status="PASS" endtime="20180320 18:29:40.959" starttime="20180320 18:29:39.859"></status>
+</kw>
+<status status="PASS" endtime="20180320 18:29:40.959" starttime="20180320 18:29:39.858"></status>
+</kw>
+<doc>Search box exists in given website</doc>
+<status status="PASS" endtime="20180320 18:29:40.959" critical="yes" starttime="20180320 18:29:39.857"></status>
+</test>
+<test id="s1-s1-t3" name="Search For Category">
+<kw name="Input Text to Searchbox and Press Enter" library="resource">
+<arguments>
+<arg>${search_id}</arg>
+<arg>${category_name}</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id:${search_box_id}</arg>
+<arg>${category_name}</arg>
+</arguments>
+<msg timestamp="20180320 18:29:40.962" level="INFO">Typing text 'Cell Phones' into text field 'id:gh-ac'.</msg>
+<status status="PASS" endtime="20180320 18:29:44.219" starttime="20180320 18:29:40.961"></status>
+</kw>
+<kw name="Press Key" library="SeleniumLibrary">
+<doc>Simulates user pressing key on element identified by ``locator``.</doc>
+<arguments>
+<arg>id:${search_box_id}</arg>
+<arg>\\13</arg>
+</arguments>
+<status status="PASS" endtime="20180320 18:29:50.224" starttime="20180320 18:29:44.220"></status>
+</kw>
+<status status="PASS" endtime="20180320 18:29:50.225" starttime="20180320 18:29:40.961"></status>
+</kw>
+<kw name="Check Number Of Products Listed" library="resource">
+<arguments>
+<arg>${products_count_class}</arg>
+</arguments>
+<kw name="Get Number Of Product Items" library="resource">
+<arguments>
+<arg>${class_name}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>class:${class_name}</arg>
+</arguments>
+<status status="PASS" endtime="20180320 18:29:51.314" starttime="20180320 18:29:50.226"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of element identified by ``locator``.</doc>
+<arguments>
+<arg>class:${class_name}</arg>
+</arguments>
+<assign>
+<var>${items_count}</var>
+</assign>
+<msg timestamp="20180320 18:29:53.473" level="INFO">${items_count} = 271,271</msg>
+<status status="PASS" endtime="20180320 18:29:53.474" starttime="20180320 18:29:51.314"></status>
+</kw>
+<msg timestamp="20180320 18:29:53.476" level="INFO">${result} = 271,271</msg>
+<status status="PASS" endtime="20180320 18:29:53.476" starttime="20180320 18:29:50.225"></status>
+</kw>
+<kw name="Split String" library="String">
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<arguments>
+<arg>${result}</arg>
+</arguments>
+<assign>
+<var>@{res}</var>
+</assign>
+<msg timestamp="20180320 18:29:53.479" level="INFO">@{res} = [ 271,271 ]</msg>
+<status status="PASS" endtime="20180320 18:29:53.479" starttime="20180320 18:29:53.477"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>@{res}[0] &gt; 0</arg>
+</arguments>
+<status status="PASS" endtime="20180320 18:29:53.482" starttime="20180320 18:29:53.480"></status>
+</kw>
+<status status="PASS" endtime="20180320 18:29:53.482" starttime="20180320 18:29:50.225"></status>
+</kw>
+<kw name="Get Number Of Product Items" library="resource">
+<arguments>
+<arg>${products_count_class}</arg>
+</arguments>
+<assign>
+<var>${products_count}</var>
+</assign>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>class:${class_name}</arg>
+</arguments>
+<status status="PASS" endtime="20180320 18:29:54.542" starttime="20180320 18:29:53.484"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of element identified by ``locator``.</doc>
+<arguments>
+<arg>class:${class_name}</arg>
+</arguments>
+<assign>
+<var>${items_count}</var>
+</assign>
+<msg timestamp="20180320 18:29:56.755" level="INFO">${items_count} = 271,271</msg>
+<status status="PASS" endtime="20180320 18:29:56.755" starttime="20180320 18:29:54.542"></status>
+</kw>
+<msg timestamp="20180320 18:29:56.756" level="INFO">${products_count} = 271,271</msg>
+<status status="PASS" endtime="20180320 18:29:56.756" starttime="20180320 18:29:53.482"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${products_count}</arg>
+</arguments>
+<msg timestamp="20180320 18:29:56.756" level="INFO">${products_count} = 271,271</msg>
+<status status="PASS" endtime="20180320 18:29:56.757" starttime="20180320 18:29:56.756"></status>
+</kw>
+<doc>Search for category and check it contains the products</doc>
+<status status="PASS" endtime="20180320 18:29:56.757" critical="yes" starttime="20180320 18:29:40.960"></status>
+</test>
+<test id="s1-s1-t4" name="User Can Filter Products - Mark Checkbox">
+<kw name="Select First Checkbox And Check If Selected" library="resource">
+<kw name="Get Checkbox" library="resource">
+<arguments>
+<arg>${checkbox}</arg>
+</arguments>
+<assign>
+<var>${ckx}</var>
+</assign>
+<kw name="Is Element Exists" library="resource">
+<arguments>
+<arg>${checkbox}</arg>
+</arguments>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<doc>Returns number of elements matching ``locator``.</doc>
+<arguments>
+<arg>${element}</arg>
+</arguments>
+<assign>
+<var>${count}</var>
+</assign>
+<msg timestamp="20180320 18:29:57.844" level="INFO">${count} = 2</msg>
+<status status="PASS" endtime="20180320 18:29:57.844" starttime="20180320 18:29:56.761"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>${count} &gt; 0</arg>
+</arguments>
+<status status="PASS" endtime="20180320 18:29:57.845" starttime="20180320 18:29:57.844"></status>
+</kw>
+<status status="PASS" endtime="20180320 18:29:57.845" starttime="20180320 18:29:56.760"></status>
+</kw>
+<kw name="Get WebElements" library="SeleniumLibrary">
+<doc>Returns list of WebElement objects matching the ``locator``.</doc>
+<arguments>
+<arg>${checkbox}</arg>
+</arguments>
+<assign>
+<var>@{elems}</var>
+</assign>
+<msg timestamp="20180320 18:29:58.930" level="INFO">@{elems} = [ &lt;selenium.webdriver.remote.webelement.WebElement (session="92f28a10-2c29-11e8-b7e0-25ce3dd22ab2", element=":wdc:1521541790238")&gt; | &lt;selenium.webdriver.remote.webelement.WebElement (session="92f28a10...</msg>
+<status status="PASS" endtime="20180320 18:29:58.930" starttime="20180320 18:29:57.845"></status>
+</kw>
+<msg timestamp="20180320 18:29:58.930" level="INFO">${ckx} = &lt;selenium.webdriver.remote.webelement.WebElement (session="92f28a10-2c29-11e8-b7e0-25ce3dd22ab2", element=":wdc:1521541790238")&gt;</msg>
+<status status="PASS" endtime="20180320 18:29:58.930" starttime="20180320 18:29:56.760"></status>
+</kw>
+<kw name="Get Checkbox Label" library="resource">
+<arguments>
+<arg>${ckx}</arg>
+</arguments>
+<assign>
+<var>${checkbox_text}</var>
+</assign>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<doc>Returns value of ``attribute`` from element ``locator``.</doc>
+<arguments>
+<arg>${checkbox_element}</arg>
+<arg>attribute=${checkbox_text_attr}</arg>
+</arguments>
+<assign>
+<var>${checkbox_text}</var>
+</assign>
+<msg timestamp="20180320 18:30:00.011" level="INFO">${checkbox_text} = Android</msg>
+<status status="PASS" endtime="20180320 18:30:00.012" starttime="20180320 18:29:58.931"></status>
+</kw>
+<msg timestamp="20180320 18:30:00.012" level="INFO">${checkbox_text} = Android</msg>
+<status status="PASS" endtime="20180320 18:30:00.012" starttime="20180320 18:29:58.931"></status>
+</kw>
+<kw name="Select Checkbox" library="SeleniumLibrary">
+<doc>Selects checkbox identified by ``locator``.</doc>
+<arguments>
+<arg>${ckx}</arg>
+</arguments>
+<msg timestamp="20180320 18:30:00.012" level="INFO">Selecting checkbox '&lt;selenium.webdriver.remote.webelement.WebElement (session="92f28a10-2c29-11e8-b7e0-25ce3dd22ab2", element=":wdc:1521541790238")&gt;'.</msg>
+<status status="PASS" endtime="20180320 18:30:09.535" starttime="20180320 18:30:00.012"></status>
+</kw>
+<kw name="Check If Checkbox Marked" library="resource">
+<arguments>
+<arg>${ckx}</arg>
+<arg>${checkbox_text}</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>xpath://*[contains(@${data_aspect_attr}, "${facet_label}")]/../..</arg>
+</arguments>
+<status status="PASS" endtime="20180320 18:30:10.587" starttime="20180320 18:30:09.535"></status>
+</kw>
+<kw name="Is Element Exists" library="resource">
+<arguments>
+<arg>xpath://*[contains(@${data_aspect_attr}, "${facet_label}")]/../..</arg>
+</arguments>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<doc>Returns number of elements matching ``locator``.</doc>
+<arguments>
+<arg>${element}</arg>
+</arguments>
+<assign>
+<var>${count}</var>
+</assign>
+<msg timestamp="20180320 18:30:11.670" level="INFO">${count} = 1</msg>
+<status status="PASS" endtime="20180320 18:30:11.671" starttime="20180320 18:30:10.589"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>${count} &gt; 0</arg>
+</arguments>
+<status status="PASS" endtime="20180320 18:30:11.676" starttime="20180320 18:30:11.671"></status>
+</kw>
+<status status="PASS" endtime="20180320 18:30:11.678" starttime="20180320 18:30:10.588"></status>
+</kw>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<doc>Returns value of ``attribute`` from element ``locator``.</doc>
+<arguments>
+<arg>xpath://*[contains(@${data_aspect_attr}, "${facet_label}")]/../..</arg>
+<arg>attribute=id</arg>
+</arguments>
+<assign>
+<var>${id}</var>
+</assign>
+<msg timestamp="20180320 18:30:13.775" level="INFO">${id} = e1-96</msg>
+<status status="PASS" endtime="20180320 18:30:13.775" starttime="20180320 18:30:11.678"></status>
+</kw>
+<kw name="Is Element Exists" library="resource">
+<arguments>
+<arg>xpath://*[@id="${id}"]/descendant::input[contains(@${checkbox_text_attr}, ${checkbox_label})]</arg>
+</arguments>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<doc>Returns number of elements matching ``locator``.</doc>
+<arguments>
+<arg>${element}</arg>
+</arguments>
+<assign>
+<var>${count}</var>
+</assign>
+<msg timestamp="20180320 18:30:14.802" level="INFO">${count} = 1</msg>
+<status status="PASS" endtime="20180320 18:30:14.802" starttime="20180320 18:30:13.776"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>${count} &gt; 0</arg>
+</arguments>
+<status status="PASS" endtime="20180320 18:30:14.802" starttime="20180320 18:30:14.802"></status>
+</kw>
+<status status="PASS" endtime="20180320 18:30:14.803" starttime="20180320 18:30:13.775"></status>
+</kw>
+<kw name="Get WebElement" library="SeleniumLibrary">
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<arguments>
+<arg>xpath://*[@id="${id}"]/descendant::input[contains(@${checkbox_text_attr}, ${checkbox_label})]</arg>
+</arguments>
+<assign>
+<var>${selected_elem}</var>
+</assign>
+<msg timestamp="20180320 18:30:15.813" level="INFO">${selected_elem} = &lt;selenium.webdriver.remote.webelement.WebElement (session="92f28a10-2c29-11e8-b7e0-25ce3dd22ab2", element=":wdc:1521541809549")&gt;</msg>
+<status status="PASS" endtime="20180320 18:30:15.813" starttime="20180320 18:30:14.803"></status>
+</kw>
+<kw name="Checkbox Should Be Selected" library="SeleniumLibrary">
+<doc>Verifies checkbox ``locator`` is selected/checked.</doc>
+<arguments>
+<arg>${selected_elem}</arg>
+</arguments>
+<msg timestamp="20180320 18:30:15.814" level="INFO">Verifying checkbox '&lt;selenium.webdriver.remote.webelement.WebElement (session="92f28a10-2c29-11e8-b7e0-25ce3dd22ab2", element=":wdc:1521541809549")&gt;' is selected.</msg>
+<status status="PASS" endtime="20180320 18:30:16.892" starttime="20180320 18:30:15.814"></status>
+</kw>
+<status status="PASS" endtime="20180320 18:30:16.892" starttime="20180320 18:30:09.535"></status>
+</kw>
+<status status="PASS" endtime="20180320 18:30:16.892" starttime="20180320 18:29:56.759"></status>
+</kw>
+<kw name="Check Number Of Products Listed" library="resource">
+<arguments>
+<arg>${products_count_class}</arg>
+</arguments>
+<kw name="Get Number Of Product Items" library="resource">
+<arguments>
+<arg>${class_name}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>class:${class_name}</arg>
+</arguments>
+<status status="PASS" endtime="20180320 18:30:17.901" starttime="20180320 18:30:16.894"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of element identified by ``locator``.</doc>
+<arguments>
+<arg>class:${class_name}</arg>
+</arguments>
+<assign>
+<var>${items_count}</var>
+</assign>
+<msg timestamp="20180320 18:30:20.003" level="INFO">${items_count} = 75,873</msg>
+<status status="PASS" endtime="20180320 18:30:20.003" starttime="20180320 18:30:17.901"></status>
+</kw>
+<msg timestamp="20180320 18:30:20.005" level="INFO">${result} = 75,873</msg>
+<status status="PASS" endtime="20180320 18:30:20.005" starttime="20180320 18:30:16.893"></status>
+</kw>
+<kw name="Split String" library="String">
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<arguments>
+<arg>${result}</arg>
+</arguments>
+<assign>
+<var>@{res}</var>
+</assign>
+<msg timestamp="20180320 18:30:20.007" level="INFO">@{res} = [ 75,873 ]</msg>
+<status status="PASS" endtime="20180320 18:30:20.007" starttime="20180320 18:30:20.006"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>@{res}[0] &gt; 0</arg>
+</arguments>
+<status status="PASS" endtime="20180320 18:30:20.008" starttime="20180320 18:30:20.008"></status>
+</kw>
+<status status="PASS" endtime="20180320 18:30:20.009" starttime="20180320 18:30:16.893"></status>
+</kw>
+<kw name="Check Data Filtered" library="resource">
+<arguments>
+<arg>${products_count_class}</arg>
+</arguments>
+<kw name="Get Number Of Product Items" library="resource">
+<arguments>
+<arg>${class_name}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>class:${class_name}</arg>
+</arguments>
+<status status="PASS" endtime="20180320 18:30:21.089" starttime="20180320 18:30:20.010"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of element identified by ``locator``.</doc>
+<arguments>
+<arg>class:${class_name}</arg>
+</arguments>
+<assign>
+<var>${items_count}</var>
+</assign>
+<msg timestamp="20180320 18:30:23.229" level="INFO">${items_count} = 75,873</msg>
+<status status="PASS" endtime="20180320 18:30:23.229" starttime="20180320 18:30:21.089"></status>
+</kw>
+<msg timestamp="20180320 18:30:23.229" level="INFO">${result} = 75,873</msg>
+<status status="PASS" endtime="20180320 18:30:23.229" starttime="20180320 18:30:20.009"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>${result} &lt;= ${products_count}</arg>
+</arguments>
+<status status="PASS" endtime="20180320 18:30:23.230" starttime="20180320 18:30:23.230"></status>
+</kw>
+<status status="PASS" endtime="20180320 18:30:23.231" starttime="20180320 18:30:20.009"></status>
+</kw>
+<doc>Mark checkbox can be checked and check if data has been filtered</doc>
+<status status="PASS" endtime="20180320 18:30:23.231" critical="yes" starttime="20180320 18:29:56.757"></status>
+</test>
+<test id="s1-s1-t5" name="User Can Filter Products - Deselect Checkbox">
+<kw name="Deselect Checkbox And Chek If Unselected" library="resource">
+<kw name="Deselect Checkbox" library="resource">
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<doc>Returns value of ``attribute`` from element ``locator``.</doc>
+<arguments>
+<arg>xpath://*[contains(@${data_aspect_attr}, "${facet_label}")]/../..</arg>
+<arg>attribute=id</arg>
+</arguments>
+<assign>
+<var>${id}</var>
+</assign>
+<msg timestamp="20180320 18:30:25.265" level="INFO">${id} = e1-96</msg>
+<status status="PASS" endtime="20180320 18:30:25.265" starttime="20180320 18:30:23.235"></status>
+</kw>
+<kw name="Is Element Exists" library="resource">
+<arguments>
+<arg>xpath://*[@id="${id}"]/descendant::input[@checked]</arg>
+</arguments>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<doc>Returns number of elements matching ``locator``.</doc>
+<arguments>
+<arg>${element}</arg>
+</arguments>
+<assign>
+<var>${count}</var>
+</assign>
+<msg timestamp="20180320 18:30:26.314" level="INFO">${count} = 1</msg>
+<status status="PASS" endtime="20180320 18:30:26.314" starttime="20180320 18:30:25.269"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>${count} &gt; 0</arg>
+</arguments>
+<status status="PASS" endtime="20180320 18:30:26.316" starttime="20180320 18:30:26.315"></status>
+</kw>
+<status status="PASS" endtime="20180320 18:30:26.316" starttime="20180320 18:30:25.266"></status>
+</kw>
+<kw name="Get WebElement" library="SeleniumLibrary">
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<arguments>
+<arg>xpath://*[@id="${id}"]/descendant::input[@checked]</arg>
+</arguments>
+<assign>
+<var>${elem}</var>
+</assign>
+<msg timestamp="20180320 18:30:27.408" level="INFO">${elem} = &lt;selenium.webdriver.remote.webelement.WebElement (session="92f28a10-2c29-11e8-b7e0-25ce3dd22ab2", element=":wdc:1521541809549")&gt;</msg>
+<status status="PASS" endtime="20180320 18:30:27.408" starttime="20180320 18:30:26.317"></status>
+</kw>
+<kw name="Checkbox Should Be Selected" library="SeleniumLibrary">
+<doc>Verifies checkbox ``locator`` is selected/checked.</doc>
+<arguments>
+<arg>${elem}</arg>
+</arguments>
+<msg timestamp="20180320 18:30:27.419" level="INFO">Verifying checkbox '&lt;selenium.webdriver.remote.webelement.WebElement (session="92f28a10-2c29-11e8-b7e0-25ce3dd22ab2", element=":wdc:1521541809549")&gt;' is selected.</msg>
+<status status="PASS" endtime="20180320 18:30:28.574" starttime="20180320 18:30:27.409"></status>
+</kw>
+<kw name="Unselect Checkbox" library="SeleniumLibrary">
+<doc>Removes selection of checkbox identified by ``locator``.</doc>
+<arguments>
+<arg>${elem}</arg>
+</arguments>
+<msg timestamp="20180320 18:30:28.576" level="INFO">Unselecting checkbox '&lt;selenium.webdriver.remote.webelement.WebElement (session="92f28a10-2c29-11e8-b7e0-25ce3dd22ab2", element=":wdc:1521541809549")&gt;'.</msg>
+<status status="PASS" endtime="20180320 18:30:49.589" starttime="20180320 18:30:28.575"></status>
+</kw>
+<status status="PASS" endtime="20180320 18:30:49.589" starttime="20180320 18:30:23.234"></status>
+</kw>
+<kw name="Check If Checkbox Not Marked" library="resource">
+<arguments>
+<arg>${checkbox}</arg>
+</arguments>
+<kw name="Get Checkbox" library="resource">
+<arguments>
+<arg>${checkbox}</arg>
+</arguments>
+<assign>
+<var>${ckx}</var>
+</assign>
+<kw name="Is Element Exists" library="resource">
+<arguments>
+<arg>${checkbox}</arg>
+</arguments>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<doc>Returns number of elements matching ``locator``.</doc>
+<arguments>
+<arg>${element}</arg>
+</arguments>
+<assign>
+<var>${count}</var>
+</assign>
+<msg timestamp="20180320 18:30:50.726" level="INFO">${count} = 2</msg>
+<status status="PASS" endtime="20180320 18:30:50.727" starttime="20180320 18:30:49.593"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>${count} &gt; 0</arg>
+</arguments>
+<status status="PASS" endtime="20180320 18:30:50.727" starttime="20180320 18:30:50.727"></status>
+</kw>
+<status status="PASS" endtime="20180320 18:30:50.728" starttime="20180320 18:30:49.592"></status>
+</kw>
+<kw name="Get WebElements" library="SeleniumLibrary">
+<doc>Returns list of WebElement objects matching the ``locator``.</doc>
+<arguments>
+<arg>${checkbox}</arg>
+</arguments>
+<assign>
+<var>@{elems}</var>
+</assign>
+<msg timestamp="20180320 18:30:51.810" level="INFO">@{elems} = [ &lt;selenium.webdriver.remote.webelement.WebElement (session="92f28a10-2c29-11e8-b7e0-25ce3dd22ab2", element=":wdc:1521541849655")&gt; | &lt;selenium.webdriver.remote.webelement.WebElement (session="92f28a10...</msg>
+<status status="PASS" endtime="20180320 18:30:51.810" starttime="20180320 18:30:50.728"></status>
+</kw>
+<msg timestamp="20180320 18:30:51.811" level="INFO">${ckx} = &lt;selenium.webdriver.remote.webelement.WebElement (session="92f28a10-2c29-11e8-b7e0-25ce3dd22ab2", element=":wdc:1521541849655")&gt;</msg>
+<status status="PASS" endtime="20180320 18:30:51.811" starttime="20180320 18:30:49.591"></status>
+</kw>
+<kw name="Checkbox Should Not Be Selected" library="SeleniumLibrary">
+<doc>Verifies checkbox ``locator`` is not selected/checked.</doc>
+<arguments>
+<arg>${ckx}</arg>
+</arguments>
+<msg timestamp="20180320 18:30:51.812" level="INFO">Verifying checkbox '&lt;selenium.webdriver.remote.webelement.WebElement (session="92f28a10-2c29-11e8-b7e0-25ce3dd22ab2", element=":wdc:1521541849655")&gt;' is not selected.</msg>
+<status status="PASS" endtime="20180320 18:30:52.897" starttime="20180320 18:30:51.811"></status>
+</kw>
+<status status="PASS" endtime="20180320 18:30:52.897" starttime="20180320 18:30:49.589"></status>
+</kw>
+<status status="PASS" endtime="20180320 18:30:52.898" starttime="20180320 18:30:23.234"></status>
+</kw>
+<kw name="Check Number Of Products Listed" library="resource">
+<arguments>
+<arg>${products_count_class}</arg>
+</arguments>
+<kw name="Get Number Of Product Items" library="resource">
+<arguments>
+<arg>${class_name}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>class:${class_name}</arg>
+</arguments>
+<status status="PASS" endtime="20180320 18:30:53.979" starttime="20180320 18:30:52.899"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of element identified by ``locator``.</doc>
+<arguments>
+<arg>class:${class_name}</arg>
+</arguments>
+<assign>
+<var>${items_count}</var>
+</assign>
+<msg timestamp="20180320 18:30:56.145" level="INFO">${items_count} = 271,276</msg>
+<status status="PASS" endtime="20180320 18:30:56.145" starttime="20180320 18:30:53.979"></status>
+</kw>
+<msg timestamp="20180320 18:30:56.146" level="INFO">${result} = 271,276</msg>
+<status status="PASS" endtime="20180320 18:30:56.146" starttime="20180320 18:30:52.898"></status>
+</kw>
+<kw name="Split String" library="String">
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<arguments>
+<arg>${result}</arg>
+</arguments>
+<assign>
+<var>@{res}</var>
+</assign>
+<msg timestamp="20180320 18:30:56.146" level="INFO">@{res} = [ 271,276 ]</msg>
+<status status="PASS" endtime="20180320 18:30:56.146" starttime="20180320 18:30:56.146"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>@{res}[0] &gt; 0</arg>
+</arguments>
+<status status="PASS" endtime="20180320 18:30:56.147" starttime="20180320 18:30:56.146"></status>
+</kw>
+<status status="PASS" endtime="20180320 18:30:56.147" starttime="20180320 18:30:52.898"></status>
+</kw>
+<kw name="Check Data Filtered" library="resource">
+<arguments>
+<arg>${products_count_class}</arg>
+</arguments>
+<kw name="Get Number Of Product Items" library="resource">
+<arguments>
+<arg>${class_name}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>class:${class_name}</arg>
+</arguments>
+<status status="PASS" endtime="20180320 18:30:57.229" starttime="20180320 18:30:56.148"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of element identified by ``locator``.</doc>
+<arguments>
+<arg>class:${class_name}</arg>
+</arguments>
+<assign>
+<var>${items_count}</var>
+</assign>
+<msg timestamp="20180320 18:30:59.409" level="INFO">${items_count} = 271,276</msg>
+<status status="PASS" endtime="20180320 18:30:59.409" starttime="20180320 18:30:57.229"></status>
+</kw>
+<msg timestamp="20180320 18:30:59.410" level="INFO">${result} = 271,276</msg>
+<status status="PASS" endtime="20180320 18:30:59.410" starttime="20180320 18:30:56.148"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>${result} &lt;= ${products_count}</arg>
+</arguments>
+<status status="PASS" endtime="20180320 18:30:59.411" starttime="20180320 18:30:59.410"></status>
+</kw>
+<status status="PASS" endtime="20180320 18:30:59.412" starttime="20180320 18:30:56.147"></status>
+</kw>
+<doc>Deselect checkbox and check if data has been filtered</doc>
+<status status="PASS" endtime="20180320 18:30:59.412" critical="yes" starttime="20180320 18:30:23.232"></status>
+</test>
+<test id="s1-s1-t6" name="Select Buy It Now Products">
+<kw name="Select Buy It Now Products" library="resource">
+<kw name="Is Element Exists" library="resource">
+<arguments>
+<arg>${buy_it_now}</arg>
+</arguments>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<doc>Returns number of elements matching ``locator``.</doc>
+<arguments>
+<arg>${element}</arg>
+</arguments>
+<assign>
+<var>${count}</var>
+</assign>
+<msg timestamp="20180320 18:31:00.430" level="INFO">${count} = 2</msg>
+<status status="PASS" endtime="20180320 18:31:00.430" starttime="20180320 18:30:59.416"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>${count} &gt; 0</arg>
+</arguments>
+<status status="PASS" endtime="20180320 18:31:00.431" starttime="20180320 18:31:00.431"></status>
+</kw>
+<status status="PASS" endtime="20180320 18:31:00.432" starttime="20180320 18:30:59.415"></status>
+</kw>
+<kw name="Get WebElement" library="SeleniumLibrary">
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<arguments>
+<arg>${buy_it_now}</arg>
+</arguments>
+<assign>
+<var>${elem}</var>
+</assign>
+<msg timestamp="20180320 18:31:01.519" level="INFO">${elem} = &lt;selenium.webdriver.remote.webelement.WebElement (session="92f28a10-2c29-11e8-b7e0-25ce3dd22ab2", element=":wdc:1521541849658")&gt;</msg>
+<status status="PASS" endtime="20180320 18:31:01.522" starttime="20180320 18:31:00.432"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>${elem}</arg>
+</arguments>
+<msg timestamp="20180320 18:31:01.527" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="92f28a10-2c29-11e8-b7e0-25ce3dd22ab2", element=":wdc:1521541849658")&gt;'.</msg>
+<status status="PASS" endtime="20180320 18:31:05.798" starttime="20180320 18:31:01.525"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>xpath://div[@id="${res_id}"]</arg>
+</arguments>
+<status status="PASS" endtime="20180320 18:31:06.810" starttime="20180320 18:31:05.799"></status>
+</kw>
+<kw name="Is Element Exists" library="resource">
+<arguments>
+<arg>xpath://div[@id="${res_id}"]/descendant::li[@listingid]</arg>
+</arguments>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<doc>Returns number of elements matching ``locator``.</doc>
+<arguments>
+<arg>${element}</arg>
+</arguments>
+<assign>
+<var>${count}</var>
+</assign>
+<msg timestamp="20180320 18:31:07.904" level="INFO">${count} = 59</msg>
+<status status="PASS" endtime="20180320 18:31:07.905" starttime="20180320 18:31:06.811"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>${count} &gt; 0</arg>
+</arguments>
+<status status="PASS" endtime="20180320 18:31:07.906" starttime="20180320 18:31:07.905"></status>
+</kw>
+<status status="PASS" endtime="20180320 18:31:07.906" starttime="20180320 18:31:06.810"></status>
+</kw>
+<kw name="Get WebElements" library="SeleniumLibrary">
+<doc>Returns list of WebElement objects matching the ``locator``.</doc>
+<arguments>
+<arg>xpath://div[@id="${res_id}"]/descendant::li[@listingid]/child::ul/li[@class="lvformat"]/span</arg>
+</arguments>
+<assign>
+<var>@{elems}</var>
+</assign>
+<msg timestamp="20180320 18:31:08.998" level="INFO">@{elems} = [ &lt;selenium.webdriver.remote.webelement.WebElement (session="92f28a10-2c29-11e8-b7e0-25ce3dd22ab2", element=":wdc:1521541865868")&gt; | &lt;selenium.webdriver.remote.webelement.WebElement (session="92f28a10...</msg>
+<status status="PASS" endtime="20180320 18:31:08.998" starttime="20180320 18:31:07.907"></status>
+</kw>
+<kw type="for" name="${e} IN [ @{elems} ]">
+<kw type="foritem" name="${e} = &lt;selenium.webdriver.remote.webelement.WebElement (session=&quot;92f28a10-2c29-11e8-b7e0-25ce3dd22ab2&quot;, element=&quot;:wdc:1521541865868&quot;)&gt;">
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of element identified by ``locator``.</doc>
+<arguments>
+<arg>${e}</arg>
+</arguments>
+<assign>
+<var>${text}</var>
+</assign>
+<msg timestamp="20180320 18:31:10.086" level="INFO">${text} = Buy It Now</msg>
+<status status="PASS" endtime="20180320 18:31:10.086" starttime="20180320 18:31:08.999"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${text}</arg>
+<arg>Buy It Now</arg>
+</arguments>
+<status status="PASS" endtime="20180320 18:31:10.087" starttime="20180320 18:31:10.087"></status>
+</kw>
+<status status="PASS" endtime="20180320 18:31:10.087" starttime="20180320 18:31:08.998"></status>
+</kw>
+<kw type="foritem" name="${e} = &lt;selenium.webdriver.remote.webelement.WebElement (session=&quot;92f28a10-2c29-11e8-b7e0-25ce3dd22ab2&quot;, element=&quot;:wdc:1521541865869&quot;)&gt;">
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of element identified by ``locator``.</doc>
+<arguments>
+<arg>${e}</arg>
+</arguments>
+<assign>
+<var>${text}</var>
+</assign>
+<msg timestamp="20180320 18:31:11.180" level="INFO">${text} = Buy It Now</msg>
+<status status="PASS" endtime="20180320 18:31:11.180" starttime="20180320 18:31:10.087"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${text}</arg>
+<arg>Buy It Now</arg>
+</arguments>
+<status status="PASS" endtime="20180320 18:31:11.181" starttime="20180320 18:31:11.181"></status>
+</kw>
+<status status="PASS" endtime="20180320 18:31:11.181" starttime="20180320 18:31:10.087"></status>
+</kw>
+<kw type="foritem" name="${e} = &lt;selenium.webdriver.remote.webelement.WebElement (session=&quot;92f28a10-2c29-11e8-b7e0-25ce3dd22ab2&quot;, element=&quot;:wdc:1521541865870&quot;)&gt;">
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of element identified by ``locator``.</doc>
+<arguments>
+<arg>${e}</arg>
+</arguments>
+<assign>
+<var>${text}</var>
+</assign>
+<msg timestamp="20180320 18:31:12.264" level="INFO">${text} = Buy It Now</msg>
+<status status="PASS" endtime="20180320 18:31:12.264" starttime="20180320 18:31:11.181"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${text}</arg>
+<arg>Buy It Now</arg>
+</arguments>
+<status status="PASS" endtime="20180320 18:31:12.264" starttime="20180320 18:31:12.264"></status>
+</kw>
+<status status="PASS" endtime="20180320 18:31:12.264" starttime="20180320 18:31:11.181"></status>
+</kw>
+<kw type="foritem" name="${e} = &lt;selenium.webdriver.remote.webelement.WebElement (session=&quot;92f28a10-2c29-11e8-b7e0-25ce3dd22ab2&quot;, element=&quot;:wdc:1521541865871&quot;)&gt;">
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of element identified by ``locator``.</doc>
+<arguments>
+<arg>${e}</arg>
+</arguments>
+<assign>
+<var>${text}</var>
+</assign>
+<msg timestamp="20180320 18:31:13.352" level="INFO">${text} = or Best Offer</msg>
+<status status="PASS" endtime="20180320 18:31:13.352" starttime="20180320 18:31:12.265"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${text}</arg>
+<arg>Buy It Now</arg>
+</arguments>
+<msg timestamp="20180320 18:31:13.354" level="FAIL">or Best Offer != Buy It Now</msg>
+<status status="FAIL" endtime="20180320 18:31:13.354" starttime="20180320 18:31:13.353"></status>
+</kw>
+<status status="FAIL" endtime="20180320 18:31:13.355" starttime="20180320 18:31:12.265"></status>
+</kw>
+<status status="FAIL" endtime="20180320 18:31:13.355" starttime="20180320 18:31:08.998"></status>
+</kw>
+<status status="FAIL" endtime="20180320 18:31:13.355" starttime="20180320 18:30:59.415"></status>
+</kw>
+<doc>Click Buy It Now filter and checks that all products has Buy It Now option</doc>
+<status status="FAIL" endtime="20180320 18:31:13.356" critical="yes" starttime="20180320 18:30:59.413">or Best Offer != Buy It Now</status>
+</test>
+<test id="s1-s1-t7" name="Go To HomePage">
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>&amp;{TEST_DATA}[url]</arg>
+</arguments>
+<msg timestamp="20180320 18:31:13.358" level="INFO">Opening url 'http://ebay.com'</msg>
+<status status="PASS" endtime="20180320 18:31:37.048" starttime="20180320 18:31:13.358"></status>
+</kw>
+<kw name="Title Should Start With" library="resource">
+<arguments>
+<arg>&amp;{TEST_DATA}[title]</arg>
+</arguments>
+<kw name="Get Title" library="SeleniumLibrary">
+<doc>Returns the title of current page.</doc>
+<assign>
+<var>${title}</var>
+</assign>
+<msg timestamp="20180320 18:31:38.119" level="INFO">${title} = Electronics, Cars, Fashion, Collectibles, Coupons and More | eBay</msg>
+<status status="PASS" endtime="20180320 18:31:38.119" starttime="20180320 18:31:37.049"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${title}</arg>
+<arg>${expected}</arg>
+<arg>case_sensitive=False</arg>
+</arguments>
+<status status="PASS" endtime="20180320 18:31:38.120" starttime="20180320 18:31:38.119"></status>
+</kw>
+<status status="PASS" endtime="20180320 18:31:38.120" starttime="20180320 18:31:37.048"></status>
+</kw>
+<doc>Go to HomePage to perform the next tests</doc>
+<status status="PASS" endtime="20180320 18:31:38.120" critical="yes" starttime="20180320 18:31:13.357"></status>
+</test>
+<test id="s1-s1-t8" name="Click Category From Menu">
+<kw name="Select Category From Menu" library="resource">
+<arguments>
+<arg>${cat_locator}</arg>
+</arguments>
+<kw name="Is Element Exists" library="resource">
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<doc>Returns number of elements matching ``locator``.</doc>
+<arguments>
+<arg>${element}</arg>
+</arguments>
+<assign>
+<var>${count}</var>
+</assign>
+<msg timestamp="20180320 18:31:39.208" level="INFO">${count} = 1</msg>
+<status status="PASS" endtime="20180320 18:31:39.208" starttime="20180320 18:31:38.123"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>${count} &gt; 0</arg>
+</arguments>
+<status status="PASS" endtime="20180320 18:31:39.209" starttime="20180320 18:31:39.208"></status>
+</kw>
+<status status="PASS" endtime="20180320 18:31:39.210" starttime="20180320 18:31:38.122"></status>
+</kw>
+<kw name="Get WebElement" library="SeleniumLibrary">
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<assign>
+<var>${elem}</var>
+</assign>
+<msg timestamp="20180320 18:31:40.271" level="INFO">${elem} = &lt;selenium.webdriver.remote.webelement.WebElement (session="92f28a10-2c29-11e8-b7e0-25ce3dd22ab2", element=":wdc:1521541898131")&gt;</msg>
+<status status="PASS" endtime="20180320 18:31:40.272" starttime="20180320 18:31:39.210"></status>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<doc>Simulates hovering mouse over the element ``locator``.</doc>
+<arguments>
+<arg>${elem}</arg>
+</arguments>
+<msg timestamp="20180320 18:31:40.272" level="INFO">Simulating Mouse Over on element '&lt;selenium.webdriver.remote.webelement.WebElement (session="92f28a10-2c29-11e8-b7e0-25ce3dd22ab2", element=":wdc:1521541898131")&gt;'.</msg>
+<status status="PASS" endtime="20180320 18:31:41.390" starttime="20180320 18:31:40.272"></status>
+</kw>
+<status status="PASS" endtime="20180320 18:31:41.390" starttime="20180320 18:31:38.121"></status>
+</kw>
+<kw name="Select SubCategory" library="resource">
+<arguments>
+<arg>${subcat_locator}</arg>
+</arguments>
+<kw name="Is Element Exists" library="resource">
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<doc>Returns number of elements matching ``locator``.</doc>
+<arguments>
+<arg>${element}</arg>
+</arguments>
+<assign>
+<var>${count}</var>
+</assign>
+<msg timestamp="20180320 18:31:42.476" level="INFO">${count} = 1</msg>
+<status status="PASS" endtime="20180320 18:31:42.476" starttime="20180320 18:31:41.391"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>${count} &gt; 0</arg>
+</arguments>
+<status status="PASS" endtime="20180320 18:31:42.477" starttime="20180320 18:31:42.476"></status>
+</kw>
+<status status="PASS" endtime="20180320 18:31:42.477" starttime="20180320 18:31:41.391"></status>
+</kw>
+<kw name="Get WebElement" library="SeleniumLibrary">
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<assign>
+<var>${elem}</var>
+</assign>
+<msg timestamp="20180320 18:31:43.560" level="INFO">${elem} = &lt;selenium.webdriver.remote.webelement.WebElement (session="92f28a10-2c29-11e8-b7e0-25ce3dd22ab2", element=":wdc:1521541898132")&gt;</msg>
+<status status="PASS" endtime="20180320 18:31:43.560" starttime="20180320 18:31:42.477"></status>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<doc>Simulates hovering mouse over the element ``locator``.</doc>
+<arguments>
+<arg>${elem}</arg>
+</arguments>
+<msg timestamp="20180320 18:31:43.561" level="INFO">Simulating Mouse Over on element '&lt;selenium.webdriver.remote.webelement.WebElement (session="92f28a10-2c29-11e8-b7e0-25ce3dd22ab2", element=":wdc:1521541898132")&gt;'.</msg>
+<status status="PASS" endtime="20180320 18:31:44.653" starttime="20180320 18:31:43.561"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>${elem}</arg>
+</arguments>
+<msg timestamp="20180320 18:31:44.654" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="92f28a10-2c29-11e8-b7e0-25ce3dd22ab2", element=":wdc:1521541898132")&gt;'.</msg>
+<status status="PASS" endtime="20180320 18:32:00.396" starttime="20180320 18:31:44.653"></status>
+</kw>
+<status status="PASS" endtime="20180320 18:32:00.396" starttime="20180320 18:31:41.390"></status>
+</kw>
+<doc>Click Electronics category in main page</doc>
+<status status="PASS" endtime="20180320 18:32:00.396" critical="yes" starttime="20180320 18:31:38.120"></status>
+</test>
+<test id="s1-s1-t9" name="Click Subcategory From Menu">
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>${cellphones_locator}</arg>
+</arguments>
+<status status="PASS" endtime="20180320 18:32:01.410" starttime="20180320 18:32:00.398"></status>
+</kw>
+<kw name="Select SubCategory" library="resource">
+<arguments>
+<arg>${cellphones_locator}</arg>
+</arguments>
+<kw name="Is Element Exists" library="resource">
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<doc>Returns number of elements matching ``locator``.</doc>
+<arguments>
+<arg>${element}</arg>
+</arguments>
+<assign>
+<var>${count}</var>
+</assign>
+<msg timestamp="20180320 18:32:02.500" level="INFO">${count} = 2</msg>
+<status status="PASS" endtime="20180320 18:32:02.500" starttime="20180320 18:32:01.415"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>${count} &gt; 0</arg>
+</arguments>
+<status status="PASS" endtime="20180320 18:32:02.501" starttime="20180320 18:32:02.501"></status>
+</kw>
+<status status="PASS" endtime="20180320 18:32:02.501" starttime="20180320 18:32:01.412"></status>
+</kw>
+<kw name="Get WebElement" library="SeleniumLibrary">
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<assign>
+<var>${elem}</var>
+</assign>
+<msg timestamp="20180320 18:32:03.510" level="INFO">${elem} = &lt;selenium.webdriver.remote.webelement.WebElement (session="92f28a10-2c29-11e8-b7e0-25ce3dd22ab2", element=":wdc:1521541920408")&gt;</msg>
+<status status="PASS" endtime="20180320 18:32:03.510" starttime="20180320 18:32:02.502"></status>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<doc>Simulates hovering mouse over the element ``locator``.</doc>
+<arguments>
+<arg>${elem}</arg>
+</arguments>
+<msg timestamp="20180320 18:32:03.511" level="INFO">Simulating Mouse Over on element '&lt;selenium.webdriver.remote.webelement.WebElement (session="92f28a10-2c29-11e8-b7e0-25ce3dd22ab2", element=":wdc:1521541920408")&gt;'.</msg>
+<status status="PASS" endtime="20180320 18:32:04.599" starttime="20180320 18:32:03.511"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>${elem}</arg>
+</arguments>
+<msg timestamp="20180320 18:32:04.600" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="92f28a10-2c29-11e8-b7e0-25ce3dd22ab2", element=":wdc:1521541920408")&gt;'.</msg>
+<status status="PASS" endtime="20180320 18:32:05.658" starttime="20180320 18:32:04.600"></status>
+</kw>
+<status status="PASS" endtime="20180320 18:32:05.659" starttime="20180320 18:32:01.411"></status>
+</kw>
+<doc>Click Cellphones category</doc>
+<status status="PASS" endtime="20180320 18:32:05.659" critical="yes" starttime="20180320 18:32:00.397"></status>
+</test>
+<test id="s1-s1-t10" name="Select Cell Phones Category">
+<kw name="Select SubCategory" library="resource">
+<arguments>
+<arg>${cellphones_sub_loc}</arg>
+</arguments>
+<kw name="Is Element Exists" library="resource">
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<doc>Returns number of elements matching ``locator``.</doc>
+<arguments>
+<arg>${element}</arg>
+</arguments>
+<assign>
+<var>${count}</var>
+</assign>
+<msg timestamp="20180320 18:32:06.757" level="INFO">${count} = 22</msg>
+<status status="PASS" endtime="20180320 18:32:06.757" starttime="20180320 18:32:05.663"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>${count} &gt; 0</arg>
+</arguments>
+<status status="PASS" endtime="20180320 18:32:06.758" starttime="20180320 18:32:06.757"></status>
+</kw>
+<status status="PASS" endtime="20180320 18:32:06.758" starttime="20180320 18:32:05.662"></status>
+</kw>
+<kw name="Get WebElement" library="SeleniumLibrary">
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<assign>
+<var>${elem}</var>
+</assign>
+<msg timestamp="20180320 18:32:07.841" level="INFO">${elem} = &lt;selenium.webdriver.remote.webelement.WebElement (session="92f28a10-2c29-11e8-b7e0-25ce3dd22ab2", element=":wdc:1521541920409")&gt;</msg>
+<status status="PASS" endtime="20180320 18:32:07.841" starttime="20180320 18:32:06.759"></status>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<doc>Simulates hovering mouse over the element ``locator``.</doc>
+<arguments>
+<arg>${elem}</arg>
+</arguments>
+<msg timestamp="20180320 18:32:07.842" level="INFO">Simulating Mouse Over on element '&lt;selenium.webdriver.remote.webelement.WebElement (session="92f28a10-2c29-11e8-b7e0-25ce3dd22ab2", element=":wdc:1521541920409")&gt;'.</msg>
+<status status="PASS" endtime="20180320 18:32:08.863" starttime="20180320 18:32:07.841"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>${elem}</arg>
+</arguments>
+<msg timestamp="20180320 18:32:08.863" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="92f28a10-2c29-11e8-b7e0-25ce3dd22ab2", element=":wdc:1521541920409")&gt;'.</msg>
+<status status="PASS" endtime="20180320 18:32:13.829" starttime="20180320 18:32:08.863"></status>
+</kw>
+<status status="PASS" endtime="20180320 18:32:13.829" starttime="20180320 18:32:05.661"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>class:${filter_count}</arg>
+</arguments>
+<status status="PASS" endtime="20180320 18:32:14.913" starttime="20180320 18:32:13.829"></status>
+</kw>
+<kw name="Check Number Of Products Listed" library="resource">
+<arguments>
+<arg>${filter_count}</arg>
+</arguments>
+<kw name="Get Number Of Product Items" library="resource">
+<arguments>
+<arg>${class_name}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>class:${class_name}</arg>
+</arguments>
+<status status="PASS" endtime="20180320 18:32:15.989" starttime="20180320 18:32:14.915"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of element identified by ``locator``.</doc>
+<arguments>
+<arg>class:${class_name}</arg>
+</arguments>
+<assign>
+<var>${items_count}</var>
+</assign>
+<msg timestamp="20180320 18:32:18.148" level="INFO">${items_count} = 271,286 listings</msg>
+<status status="PASS" endtime="20180320 18:32:18.149" starttime="20180320 18:32:15.989"></status>
+</kw>
+<msg timestamp="20180320 18:32:18.149" level="INFO">${result} = 271,286 listings</msg>
+<status status="PASS" endtime="20180320 18:32:18.149" starttime="20180320 18:32:14.914"></status>
+</kw>
+<kw name="Split String" library="String">
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<arguments>
+<arg>${result}</arg>
+</arguments>
+<assign>
+<var>@{res}</var>
+</assign>
+<msg timestamp="20180320 18:32:18.151" level="INFO">@{res} = [ 271,286 | listings ]</msg>
+<status status="PASS" endtime="20180320 18:32:18.151" starttime="20180320 18:32:18.150"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>@{res}[0] &gt; 0</arg>
+</arguments>
+<status status="PASS" endtime="20180320 18:32:18.152" starttime="20180320 18:32:18.151"></status>
+</kw>
+<status status="PASS" endtime="20180320 18:32:18.152" starttime="20180320 18:32:14.914"></status>
+</kw>
+<doc>Click Shop Cellphones</doc>
+<status status="PASS" endtime="20180320 18:32:18.153" critical="yes" starttime="20180320 18:32:05.660"></status>
+</test>
+<kw type="teardown" name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20180320 18:32:19.273" starttime="20180320 18:32:18.156"></status>
+</kw>
+<doc>"Basic tests for Cell Phones product category on eBay"</doc>
+<status status="FAIL" endtime="20180320 18:32:19.273" starttime="20180320 18:29:29.197"></status>
+</suite>
+<status status="FAIL" endtime="20180320 18:32:19.287" starttime="20180320 18:29:29.159"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="1" pass="9">Critical Tests</stat>
+<stat fail="1" pass="9">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="1" id="s1" name="Testsuite" pass="9">Testsuite</stat>
+<stat fail="1" id="s1-s1" name="Cell Phones Category" pass="9">Testsuite.Cell Phones Category</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

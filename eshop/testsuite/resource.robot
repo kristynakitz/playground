@@ -8,7 +8,7 @@ Resource          testdata.robot
 
 *** Variables ***
 
-${BROWSER}        phantomjs
+${BROWSER}        phantomjs  # used for jenkins on MacOS to demonstrate the headless browser usage
 ${DELAY}          1   # it's slow connection from China
 
 

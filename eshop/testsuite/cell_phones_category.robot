@@ -39,6 +39,7 @@ User Can Filter Products - Deselect Checkbox
     Check Data Filtered     ${products_count_class}
 
 
+#### These testcases can be created the same way as the Checkbox testcases ####
 #User Can Filter Products - Radio buttons
 #    [Documentation]    Checks whether radio buttons can be switched
 
@@ -48,6 +49,7 @@ User Can Filter Products - Deselect Checkbox
 
 
 Select Buy It Now Products
+    # Note: this testcase fails as the website contains one item which does not have Buy It Now button
     [Documentation]  Click Buy It Now filter and checks that all products has Buy It Now option
     Select Buy It Now Products
 
